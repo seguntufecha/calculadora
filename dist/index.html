@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by juan vassilacos</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Numerología</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Numerología</h1>
+
+    <label for="fechaNacimiento">Fecha de Nacimiento (dd/mm/yyyy): </label>
+    <input type="text" id="fechaNacimiento" placeholder="Ingrese la fecha de nacimiento">
+
+    <br><br>
+
+    <label for="horaNacimiento">Hora de Nacimiento (hh:mm): </label>
+    <input type="text" id="horaNacimiento" placeholder="Ingrese la hora de nacimiento">
+
+    <br><br>
+
+    <button onclick="calcularNumerologia()">Calcular Numerología</button>
+
+    <br><br>
+
+    <p id="resultado"></p>
+
+    <script>
+        function calcularNumerologia() {
+            var fechaNacimiento = document.getElementById('fechaNacimiento').value;
+            var horaNacimiento = document.getElementById('horaNacimiento').value;
+
+            // Validar la entrada (puedes personalizar esta parte según tus requisitos)
+
+            // Calcular la numerología
+            var numerologia = calcularNumerologiaJS(fechaNacimiento, horaNacimiento);
+
+            // Mostrar el resultado
+            document.getElementById('resultado').innerHTML = "El número de numerología es: " + numerologia;
+        }
+
+        function calcularNumerologiaJS(fechaNacimiento, horaNacimiento) {
+            // Implementa la lógica de cálculo en JavaScript
+            var sumaFecha = sumarDigitosJS(fechaNacimiento);
+            var sumaHora = sumarDigitosJS(horaNacimiento);
+
+            // Sumar los resultados parciales
+            return sumaFecha + sumaHora;
+        }
+
+        function sumarDigitosJS(cadena) {
+            // Implementa la lógica de suma de dígitos en JavaScript
+            var suma = 0;
+            for (var i = 0; i < cadena.length; i++) {
+                if (!isNaN(parseInt(cadena[i]))) {
+                    suma += parseInt(cadena[i]);
+                }
+            }
+            return suma;
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  <script type="module" src="./script.js"></script>
+
+</body>
+</html>
